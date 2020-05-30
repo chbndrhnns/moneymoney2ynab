@@ -84,8 +84,8 @@ function WriteTransactions (account, transactions)
       assert(io.write("          <DTPOSTED>", os.date("%Y%m%d", transaction.bookingDate), "\n"))
       assert(io.write("          <TRNAMT>", transaction.amount, "\n"))
       assert(io.write("          <FITID>", transaction.id, "\n"))
-      assert(io.write("          <NAME>", transaction.name, "\n"))
-      assert(io.write("          <MEMO>", transaction.purpose, "\n"))
+      assert(io.write("          <NAME>", string.sub(transaction.name, 0, 32), "\n"))
+      assert(io.write("          <MEMO>", string.sub(transaction.purpose, 0, 32), "\n"))
       assert(io.write("        </STMTTRN>\n"))
     end
   end
